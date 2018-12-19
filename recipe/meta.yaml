@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - ldflags.patch
+    - cxxflags.patch
 
 build:
   number: 1001
