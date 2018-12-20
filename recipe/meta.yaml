@@ -12,26 +12,27 @@ source:
   sha256: {{ sha256 }}
   patches:
     - ldflags.patch
+    - cxxflags.patch
 
 build:
-  number: 0
+  number: 1001
   skip: true  # [win]
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('cxx') }}
+  host:
     - python
     - pybind11
     - halide {{ version }}
-    - zlib 1.2.*
+    - zlib
   run:
     - halide {{ version }}
-    - zlib 1.2.*
+    - zlib
     - python
     - numpy
     - pillow
     - scipy
-
 
 test:
   imports:
