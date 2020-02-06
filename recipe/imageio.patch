@@ -1,0 +1,137 @@
+From a665b86d9399c794ba1074e8bcf0de9b4673042c Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Thu, 6 Feb 2020 09:31:46 +0100
+Subject: [PATCH] backport imageio import in python tests
+
+---
+ python_bindings/apps/bilateral_grid.py                      | 2 +-
+ python_bindings/apps/blur.py                                | 2 +-
+ python_bindings/apps/erode.py                               | 2 +-
+ python_bindings/apps/interpolate.py                         | 2 +-
+ python_bindings/apps/local_laplacian.py                     | 2 +-
+ python_bindings/tutorial/lesson_02_input_image.py           | 2 +-
+ python_bindings/tutorial/lesson_07_multi_stage_pipelines.py | 2 +-
+ python_bindings/tutorial/lesson_09_update_definitions.py    | 2 +-
+ python_bindings/tutorial/lesson_12_using_the_gpu.py         | 2 +-
+ 9 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/python_bindings/apps/bilateral_grid.py b/python_bindings/apps/bilateral_grid.py
+index 39492290d..e0e527ce2 100644
+--- a/python_bindings/apps/bilateral_grid.py
++++ b/python_bindings/apps/bilateral_grid.py
+@@ -8,7 +8,7 @@ from __future__ import division
+ import halide as hl
+ 
+ import numpy as np
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ import os.path
+ 
+ def get_bilateral_grid(input, r_sigma, s_sigma):
+diff --git a/python_bindings/apps/blur.py b/python_bindings/apps/blur.py
+index 1f26013c6..b99444541 100644
+--- a/python_bindings/apps/blur.py
++++ b/python_bindings/apps/blur.py
+@@ -1,7 +1,7 @@
+ import halide as hl
+ 
+ import numpy as np
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ import os.path
+ 
+ def get_blur(input):
+diff --git a/python_bindings/apps/erode.py b/python_bindings/apps/erode.py
+index 139cb1251..9425c4d9b 100644
+--- a/python_bindings/apps/erode.py
++++ b/python_bindings/apps/erode.py
+@@ -5,7 +5,7 @@ Erode application using Python Halide bindings
+ import halide as hl
+ 
+ import numpy as np
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ import os.path
+ 
+ def get_erode(input):
+diff --git a/python_bindings/apps/interpolate.py b/python_bindings/apps/interpolate.py
+index 0d4418e37..0352d6935 100644
+--- a/python_bindings/apps/interpolate.py
++++ b/python_bindings/apps/interpolate.py
+@@ -9,7 +9,7 @@ import time, sys
+ import halide as hl
+ 
+ from datetime import datetime
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ import numpy as np
+ import os.path
+ 
+diff --git a/python_bindings/apps/local_laplacian.py b/python_bindings/apps/local_laplacian.py
+index bb1c0d393..d3440f6b3 100644
+--- a/python_bindings/apps/local_laplacian.py
++++ b/python_bindings/apps/local_laplacian.py
+@@ -8,7 +8,7 @@ from __future__ import division
+ import halide as hl
+ 
+ import numpy as np
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ 
+ import os.path
+ 
+diff --git a/python_bindings/tutorial/lesson_02_input_image.py b/python_bindings/tutorial/lesson_02_input_image.py
+index 8654c6629..89198384d 100644
+--- a/python_bindings/tutorial/lesson_02_input_image.py
++++ b/python_bindings/tutorial/lesson_02_input_image.py
+@@ -20,7 +20,7 @@
+ 
+ import halide as hl
+ import numpy as np
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ import os.path
+ 
+ def main():
+diff --git a/python_bindings/tutorial/lesson_07_multi_stage_pipelines.py b/python_bindings/tutorial/lesson_07_multi_stage_pipelines.py
+index 07183c638..04a2366c0 100644
+--- a/python_bindings/tutorial/lesson_07_multi_stage_pipelines.py
++++ b/python_bindings/tutorial/lesson_07_multi_stage_pipelines.py
+@@ -24,7 +24,7 @@ import halide as hl
+ 
+ # Support code for loading pngs.
+ #include "image_io.h"
+-from scipy.misc import imread, imsave
++from imageio import imread, imsave
+ 
+ import os.path
+ 
+diff --git a/python_bindings/tutorial/lesson_09_update_definitions.py b/python_bindings/tutorial/lesson_09_update_definitions.py
+index bd085c9fb..e7abd689f 100644
+--- a/python_bindings/tutorial/lesson_09_update_definitions.py
++++ b/python_bindings/tutorial/lesson_09_update_definitions.py
+@@ -33,7 +33,7 @@ import halide as hl
+ 
+ # Support code for loading pngs.
+ #include "image_io.h"
+-from scipy.misc import imread
++from imageio import imread
+ import numpy as np
+ import os.path
+ 
+diff --git a/python_bindings/tutorial/lesson_12_using_the_gpu.py b/python_bindings/tutorial/lesson_12_using_the_gpu.py
+index fd3f92f73..38a529cfc 100644
+--- a/python_bindings/tutorial/lesson_12_using_the_gpu.py
++++ b/python_bindings/tutorial/lesson_12_using_the_gpu.py
+@@ -24,7 +24,7 @@ import halide as hl
+ 
+ # Include some support code for loading pngs.
+ #include "image_io.h"
+-from scipy.misc import imread
++from imageio import imread
+ import os.path
+ 
+ # Include a clock to do performance testing.
+-- 
+2.23.0
+

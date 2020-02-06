@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - ldflags.patch
+    - imageio.patch
 
 build:
   number: 0
@@ -30,10 +31,10 @@ requirements:
     - zlib
     - python
     - numpy
-    - pillow
-    - scipy
 
 test:
+  requirements:
+    - imageio
   imports:
     - halide
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -xeuo pipefail
 
-CORRECTNESS="${RECIPE_DIR}/python_bindings/correctness"
-for TEST in `ls "$CORRECTNESS*.py"`; do
-    echo "Testing $TEST"
-    "$PYTHON" "${CORRECTNESS}/${TEST}"
-done
+export HALIDE_DISTRIB_PATH=$PREFIX
+export LIBHALIDE=$PREFIX/lib/libHalide$SHLIB_EXT
+
+cd ${RECIPE_DIR}/python_bindings
+make test_apps

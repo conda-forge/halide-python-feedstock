@@ -13,5 +13,7 @@ fi
 cd python_bindings
 make -j${CPU_COUNT}
 
+ls -l bin
+
 # install the module
 cp bin/halide*.so "$SP_DIR/"
