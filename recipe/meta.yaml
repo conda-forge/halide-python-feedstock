@@ -33,8 +33,10 @@ requirements:
     - numpy
 
 test:
-  requirements:
+  requires:
     - imageio
+  source_files:
+    - python_bindings/apps
   imports:
     - halide
 

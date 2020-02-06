@@ -1,8 +1,12 @@
 #!/bin/bash
 set -xeuo pipefail
 
-export HALIDE_DISTRIB_PATH=$PREFIX
-export LIBHALIDE=$PREFIX/lib/libHalide$SHLIB_EXT
+ls -l
 
-cd ${RECIPE_DIR}/python_bindings
-make test_apps
+APPS="python_bindings/apps"
+test -d $APPS
+
+for TEST in `ls "$APPS"`; do
+    echo "Testing $TEST"
+    "$PYTHON" "${APPS}/${TEST}"
+done
