@@ -24,10 +24,10 @@ requirements:
   host:
     - python
     - pybind11
-    - halide {{ version }}
+    - halide =={{ version }}
     - zlib
   run:
-    - halide {{ version }}
+    - halide =={{ version }}
     - zlib
     - python
     - numpy
