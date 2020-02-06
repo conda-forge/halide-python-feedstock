@@ -1,6 +1,6 @@
 {% set name = "halide-python" %}
-{% set version = "2018.02.15" %}
-{% set sha256 = "0c26375ad8016f0bf96d67b1283020900197329b6d73e5f9fa27c082a38a2742" %}
+{% set version = "2019.08.27" %}
+{% set sha256 = "2883622a952f411a8c8a0da60bb6f1277923c62549928be53a28ce61d72e8353" %}
 
 package:
   name: {{ name }}
@@ -12,10 +12,10 @@ source:
   sha256: {{ sha256 }}
   patches:
     - ldflags.patch
-    - cxxflags.patch
+    - imageio.patch
 
 build:
-  number: 1001
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -24,17 +24,20 @@ requirements:
   host:
     - python
     - pybind11
-    - halide {{ version }}
+    - halide =={{ version }}
     - zlib
   run:
-    - halide {{ version }}
+    - halide =={{ version }}
     - zlib
     - python
     - numpy
-    - pillow
-    - scipy
 
 test:
+  requires:
+    - imageio
+  source_files:
+    - python_bindings/apps
+    - apps
   imports:
     - halide
 
