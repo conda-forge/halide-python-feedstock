@@ -37,6 +37,7 @@ test:
     - imageio
   source_files:
     - python_bindings/apps
+    - apps
   imports:
     - halide
 
