@@ -1,11 +1,11 @@
-About halide-python
-===================
+About halide-python-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/halide-python-feedstock/blob/main/LICENSE.txt)
 
 Home: http://halide-lang.org
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/halide-python-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python bindings for Halide, a language for image processing and computational photography
 
